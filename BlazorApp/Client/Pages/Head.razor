@@ -1,0 +1,29 @@
+﻿@page "/head"
+@using Microsoft.AspNetCore.Components.Web.Extensions.Head
+
+
+<Title Value="@title"></Title>
+<Link rel="icon" href="@icon" />
+
+
+@*
+	<Meta ... />
+*@
+
+<EditForm Model="this">
+	Title:
+	<input type="text" @bind-value="title" @bind-value:event="oninput" /><br />
+
+	Icon:
+	<InputRadioGroup @bind-Value="icon">
+		<InputRadio Value="@("favicon.ico")" />
+		<InputRadio Value="@("havit.ico")" />
+	</InputRadioGroup>
+	<br />
+</EditForm>
+
+@code
+{
+	string title = "Default title";
+	string icon = "favicon.ico";
+}
