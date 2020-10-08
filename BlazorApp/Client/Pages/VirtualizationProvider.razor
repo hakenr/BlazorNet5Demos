@@ -20,7 +20,7 @@
 {
 	private async ValueTask<ItemsProviderResult<Person>> LoadData(ItemsProviderRequest request)
 	{
-		await Task.Delay(300);
+		await Task.Delay(150);
 		var persons = Enumerable.Range(request.StartIndex, request.Count).Select(i => new Person() { Id = i }).ToList();
 
 		return new ItemsProviderResult<Person>(persons, 10000);
