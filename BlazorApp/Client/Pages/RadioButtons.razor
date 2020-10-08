@@ -1,0 +1,47 @@
+﻿@page "/radiobuttons"
+@using System.ComponentModel.DataAnnotations
+
+<EditForm Model="Data">
+	<DataAnnotationsValidator />
+	<ValidationSummary />
+
+	<InputRadioGroup @bind-Value="Data.Selection">
+		@foreach (var opinion in items)
+		{
+			<div class="form-check">
+				<InputRadio class="form-check-input" id="@("opt" + opinion.Value)" Value="@opinion.Value" />
+				<label class="form-check-label" for="@("opt" + opinion.Value)">@opinion.Text</label>
+			</div>
+		}
+	</InputRadioGroup>
+
+	<input type="submit" value="Submit" />
+
+	<p>Model value: @Data.Selection</p>
+</EditForm>
+
+@code
+{
+	public MyDto Data { get; set; } = new MyDto();
+
+	private List<ListItem> items = new List<ListItem>()
+	{
+		new ListItem() { Value = null, Text = "-select-"},
+		new ListItem() { Value = 1, Text = "Option 1"},
+		new ListItem() { Value = 2, Text = "Option 2"},
+		new ListItem() { Value = 3, Text = "Option 3"},
+	};
+
+
+	public class MyDto
+	{
+		[Required]
+		public int? Selection { get; set; }
+	}
+
+	public class ListItem
+	{
+		public int? Value{ get; set; }
+		public string Text { get; set; }
+	}
+}
