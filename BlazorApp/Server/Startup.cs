@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Components.WebAssembly.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.ResponseCompression;
@@ -22,6 +23,7 @@ namespace BlazorApp.Server
 		// For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
 		public void ConfigureServices(IServiceCollection services)
 		{
+			services.AddScoped<LazyAssemblyLoader>();
 
 			services.AddControllersWithViews();
 			services.AddRazorPages();
@@ -53,6 +55,7 @@ namespace BlazorApp.Server
 				endpoints.MapRazorPages();
 				endpoints.MapControllers();
 				endpoints.MapFallbackToFile("index.html");
+				//endpoints.MapFallbackToPage("/_Host");
 			});
 		}
 	}
