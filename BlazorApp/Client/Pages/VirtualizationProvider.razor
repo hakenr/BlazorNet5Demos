@@ -1,0 +1,33 @@
+﻿@page "/virtualization-provider"
+
+<table>
+	<Virtualize ItemsProvider="LoadData" Context="person">
+		<ItemContent>
+			<tr>
+				<td>@person.Id</td>
+				<td>bla</td>
+			</tr>
+		</ItemContent>
+		<Placeholder>
+			<tr>
+				<td>Loading...</td>
+			</tr>
+		</Placeholder>
+	</Virtualize>
+</table>
+
+@code
+{
+	private async ValueTask<ItemsProviderResult<Person>> LoadData(ItemsProviderRequest request)
+	{
+		await Task.Delay(300);
+		var persons = Enumerable.Range(request.StartIndex, request.Count).Select(i => new Person() { Id = i }).ToList();
+
+		return new ItemsProviderResult<Person>(persons, 10000);
+	}
+
+	public class Person
+	{
+		public int Id { get; set; }
+	}
+}

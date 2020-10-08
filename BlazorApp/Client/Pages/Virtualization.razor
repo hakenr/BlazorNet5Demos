@@ -1,0 +1,35 @@
+﻿@page "/virtualization"
+
+<NavLink href="/virtualization-provider">Virtualization with ItemsProvider</NavLink>
+
+
+<table>
+	@foreach (var person in persons)
+	{
+		<tr>
+			<td>@person.Id</td>
+			<td>bla</td>
+		</tr>
+	}
+</table>
+
+
+@*<table>
+		<Virtualize Items="@persons" Context="person">
+			<tr>
+				<td>@person.Id</td>
+				<td>bla</td>
+			</tr>
+		</Virtualize>
+	</table>*@
+
+@code
+{
+	ICollection<Person> persons = Enumerable.Range(1, 10000).Select(i => new Person() { Id = i }).ToList();
+
+
+	public class Person
+	{
+		public int Id { get; set; }
+	}
+}
