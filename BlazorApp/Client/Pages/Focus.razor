@@ -1,0 +1,26 @@
+﻿@page "/focus"
+
+<input @ref="input1" /> <button @onclick="() => input1.FocusAsync()">Set focus 1</button><br />
+<input @ref="input2" /> <button @onclick="() => input2.FocusAsync()">Set focus 2</button><br />
+<input @ref="input3" /> <button @onclick="() => input3.FocusAsync()">Set focus 3</button><br />
+<button @onclick="Disco">Party time!</button>
+
+@code
+{
+	ElementReference input1;
+	ElementReference input2;
+	ElementReference input3;
+
+	async void Disco()
+	{
+		for (int i = 0; i < 20; i++)
+		{
+			await input1.FocusAsync();
+			await Task.Delay(100);
+			await input2.FocusAsync();
+			await Task.Delay(100);
+			await input3.FocusAsync();
+			await Task.Delay(100);
+		}
+	}
+}
