@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp.Client", "BlazorA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp.Shared", "BlazorApp\Shared\BlazorApp.Shared.csproj", "{88389B02-E850-416D-98EC-3315DCBE2B2D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp.Client.LazyPages1", "BlazorApp.Client.LazyPages1\BlazorApp.Client.LazyPages1.csproj", "{DC07BC01-F32F-49DF-AAAF-3AA0B8A1730D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp.Client.LazyPages2", "BlazorApp.Client.LazyPages2\BlazorApp.Client.LazyPages2.csproj", "{00185780-841D-41D5-8087-32C62642AEA3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{88389B02-E850-416D-98EC-3315DCBE2B2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88389B02-E850-416D-98EC-3315DCBE2B2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88389B02-E850-416D-98EC-3315DCBE2B2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC07BC01-F32F-49DF-AAAF-3AA0B8A1730D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC07BC01-F32F-49DF-AAAF-3AA0B8A1730D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC07BC01-F32F-49DF-AAAF-3AA0B8A1730D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC07BC01-F32F-49DF-AAAF-3AA0B8A1730D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00185780-841D-41D5-8087-32C62642AEA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00185780-841D-41D5-8087-32C62642AEA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00185780-841D-41D5-8087-32C62642AEA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00185780-841D-41D5-8087-32C62642AEA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
