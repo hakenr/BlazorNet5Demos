@@ -1,0 +1,24 @@
+﻿@page "/ontoggle-event"
+
+<h1><code>ontoggle</code> event</h1>
+
+<div>
+	@if (detailsExpanded)
+	{
+		<p>Read the details carefully!</p>
+	}
+	<details id="details-toggle" @ontoggle="OnToggle">
+		<summary>Summary</summary>
+		<p>Detailed content</p>
+	</details>
+</div>
+
+@code {
+	bool detailsExpanded;
+	string message { get; set; }
+
+	void OnToggle()
+	{
+		detailsExpanded = !detailsExpanded;
+	}
+}
