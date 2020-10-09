@@ -1,0 +1,41 @@
+﻿@page "/validation-css-classes"
+@using System.ComponentModel.DataAnnotations
+
+<EditForm EditContext="@MyEditContext" class="myform">
+	<DataAnnotationsValidator />
+	<ValidationSummary />
+
+	<InputText @bind-Value="Data.Name" />
+
+	<input type="submit" value="Submit" />
+</EditForm>
+
+@code 
+{
+	public MyModel Data { get; set; } = new MyModel();
+	public EditContext MyEditContext { get; set; }
+
+	protected override Task OnInitializedAsync()
+	{
+		MyEditContext = new EditContext(this.Data);
+		MyEditContext.SetFieldCssClassProvider(new MyFieldClassProvider());
+
+		return base.OnInitializedAsync();
+	}
+
+
+	private class MyFieldClassProvider : FieldCssClassProvider
+	{
+		public override string GetFieldCssClass(EditContext editContext, in FieldIdentifier fieldIdentifier)
+		{
+			var isValid = !editContext.GetValidationMessages(fieldIdentifier).Any();
+			return isValid ? "looks-good" : "really-bad";
+		}
+	}
+
+	public class MyModel
+	{
+		[Required]
+		public string Name { get; set; }
+	}
+}
